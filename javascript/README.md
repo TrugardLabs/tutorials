@@ -169,31 +169,31 @@ In this tutorial, we'll walk through setting up a JavaScript environment and mak
 
    ```javascript
    axios.post(url, { query }, { headers })
-  .then(response => {
-    // Handle the response data
-    const data = response.data.data;
-    console.log(JSON.stringify(data, null, 2));
+    .then(response => {
+      // Handle the response data
+      const data = response.data.data;
+      console.log(JSON.stringify(data, null, 2));
 
-    // Parse and display the response data
-    const tabSpace = ' '.repeat(6);
-    for (const key in data) {
-      console.log('Type:', key);
-      console.log('Keys:');
-      const data2 = data[key];
-      if (Array.isArray(data2)) { // contracts response
-        for (const key2 in data2[0]) {
-          console.log(tabSpace, key2);
-        }
-      } else { // contract response
-        for (const key2 in data2) {
-          console.log(tabSpace, key2);
+      // Parse and display the response data
+      const tabSpace = ' '.repeat(6);
+      for (const key in data) {
+        console.log('Type:', key);
+        console.log('Keys:');
+        const data2 = data[key];
+        if (Array.isArray(data2)) { // contracts response
+          for (const key2 in data2[0]) {
+            console.log(tabSpace, key2);
+          }
+        } else { // contract response
+          for (const key2 in data2) {
+            console.log(tabSpace, key2);
+          }
         }
       }
-    }
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
    ```
 
 6. **Run the script**
