@@ -116,11 +116,14 @@ In this tutorial, we'll walk through setting up a Python environment and making 
 
    Here we use the `json.dumps` function to pretty-print the JSON response.
 
+   ### Advanced Parsing: Iterating over the response data
+
    If the data is a list, you can iterate over it and print each contract/item.
 
    If the data is a dictionary, you can access specific keys and values.
 
-   Here's an example of printing the 'Keys' of the response data:
+   Here's an example of printing the 'Keys' of the response data, 
+   no matter what type it is:
 
    ```python
     tab_space = ' ' * 6
@@ -128,14 +131,12 @@ In this tutorial, we'll walk through setting up a Python environment and making 
         print('Type: ', key)
         print('Keys:')
         data2 = data[key]
-        if type(data2) == list: ## contracts response
-            for key2 in data2[0].keys():
-
-                print(tab_space, key2)
-        else: ## contract response
-            for key2 in data2.keys():
-                print(tab_space, key2)
-
+        if type(data2) == list:  # contracts response
+            for k in data2[0].keys():
+                print(tab_space, k)
+        else:  # contract response
+            for k in data2.keys():
+                print(tab_space, k)
     ```
 
     Here's an example of printing the 'Keys' for 'contracts' 
